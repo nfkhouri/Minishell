@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tde-cama <tde-cama@student.42.fr>          +#+  +:+       +#+         #
+#    By: nfranco- <nfranco-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/14 18:16:40 by tde-cama          #+#    #+#              #
-#    Updated: 2021/07/31 22:01:37 by tde-cama         ###   ########.fr        #
+#    Updated: 2021/08/07 21:55:26 by nfranco-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ FILES			= gnl.c gnl_utils.c utils.c utils_2.c list.c history.c \
 
 SRCDIR			= src/
 
-SRCS			= $(addprefix $(SRCDIR), $(FILES)) main.c
+SRCS			= $(addprefix $(SRCDIR), $(FILES)) main1.c
 
 OBJS			= ${SRCS:.c=.o}
 

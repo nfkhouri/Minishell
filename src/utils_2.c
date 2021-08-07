@@ -5,7 +5,7 @@ int	tofindmalloc(char **tofind, t_list *lst)
 	int	i;
 
 	i = 0;
-	while (lst && *(lst->content) != '=')
+	while (lst && !ft_iscontained(*(lst->content)," \t\"\'"))
 	{
 		lst = lst->next;
 		i++;
