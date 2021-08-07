@@ -17,7 +17,7 @@ void	flow_pipe(int x, int fd[], char *argv, char *envp[])
 	execve(cmd[0], cmd, envp);
 	free_star(cmd);
 	write(2, "Error: Command not found\n", 25);
-	exit(1);
+	exit(127);
 }
 
 void	set_path(char **cmd[], char *env[])
@@ -56,7 +56,7 @@ void	ft_builtinsfound(
 	else
 	{
 		free_star(argv);
-		perror("Error");
+		printf("Error: %s\n", strerror(errno));
 		exit (EXIT_FAILURE);
 	}
 }

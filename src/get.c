@@ -32,33 +32,38 @@ static void	get_pos(int *x, int *y)
 	i = get_coord_val(buf, y, '[', i);
 }
 
+void	lastline_util(struct winsize w)
+{
+	char	*str;
+	int		z;
+
+	str = NULL;
+	z = w.ws_row - ++g_main.rows_up;
+	if (z < 1)
+		z = 1;
+	str = ft_strjoin(ft_strdup("\e["), ft_itoa(z), 0);
+	str = ft_strjoin(str, ft_strdup(";13H"), 0);
+	write(1, str, ft_strlen(str));
+	free(str);
+	write(1, CURSOR_SAVE, 3);
+}
+
 void	check_lastline(char new)
 {
 	struct winsize	w;
 	int				x;
 	int				y;
 	int				z;
-	char			*str;
 
 	x = 0;
 	y = 0;
-	str = NULL;
 	ioctl(0, TIOCGWINSZ, &w);
 	get_pos(&x, &y);
 	z = w.ws_row - g_main.rows_up;
 	if (g_main.rows_up && z == y)
 		g_main.rows_up = 0;
 	if (y == w.ws_row && x == 2 && new != 127)
-	{
-		z = w.ws_row - ++g_main.rows_up;
-		if (z < 1)
-			z = 1;
-		str = ft_strjoin(ft_strdup("\e["), ft_itoa(z), 0);
-		str = ft_strjoin(str, ft_strdup(";13H"), 0);
-		write(1, str, ft_strlen(str));
-		free(str);
-		write(1, CURSOR_SAVE, 3);
-	}
+		lastline_util(w);
 	else
 		write(1, CURSOR_REST, 3);
 	write(1, CLEAR_END, 3);

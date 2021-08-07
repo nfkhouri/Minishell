@@ -6,13 +6,13 @@
 /*   By: tde-cama <tde-cama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 12:37:31 by tde-cama          #+#    #+#             */
-/*   Updated: 2021/07/31 23:52:26 by tde-cama         ###   ########.fr       */
+/*   Updated: 2021/08/03 17:13:31 by tde-cama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void 	clear(char *prompt)
+void	clear(char *prompt)
 {
 	write(1, CLEAR_SCREEN, 4);
 	write(1, CURSOR_HOME, 3);
@@ -21,7 +21,7 @@ void 	clear(char *prompt)
 	str_update(g_main.live, g_main.input[0], &g_main.i);
 }
 
-void 	newline(char *prompt)
+void	newline(char *prompt)
 {
 	free_lst(&g_main.buff);
 	g_main.live = ft_calloc(800 + 1, sizeof(char));

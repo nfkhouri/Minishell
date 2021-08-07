@@ -6,7 +6,8 @@ void	ft_removequotes(t_list **lst, char target)
 	{
 		if (((*lst)->next) && *((*lst)->next->content) == target)
 			lst_detach(lst);
-		*lst = (*lst)->next;
+		else
+			*lst = (*lst)->next;
 	}
 }
 
@@ -45,7 +46,7 @@ void	doublequotes(bool quote, t_list **lst)
 		{
 			if (((*lst)->next) && *((*lst)->next->content) == '?')
 				ft_exitvalue(lst);
-			else
+			else if (((*lst)->next) && ft_isalpha(*((*lst)->next->content)))
 				ft_convertdollartovalue(lst, g_main.env);
 		}
 		if (ft_iscontained(*((*lst)->content), " \t"))

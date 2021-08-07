@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tde-cama <tde-cama@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nfranco- <nfranco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/04 12:35:48 by tde-cama          #+#    #+#             */
-/*   Updated: 2021/07/31 23:50:34 by tde-cama         ###   ########.fr       */
+/*   Updated: 2021/08/07 17:05:10 by nfranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 # include <errno.h>
 # include <dirent.h>
 # include <sys/ioctl.h>
+# include <string.h>
 
 # define UP "\e[A"
 # define DOWN "\e[B"
@@ -114,6 +115,7 @@ int		ft_isalpha(int c);
 char	*ft_strnstr(const char *haystack, const char *needle, int len);
 char	*ft_strjoin(char const *s1, char const *s2, char sp);
 int		ft_strchr(const char *s, char c);
+int		ft_atoi(char *str);
 
 int		ft_parsing(char *live);
 int		parsing_prep(char *live);
@@ -138,13 +140,15 @@ void	ft_lstadd_back(t_list **lst, t_list *new);
 void	free_lst(t_list **lst);
 int		ft_lstsize(t_list *lst);
 t_list	*ft_lstlast(t_list *lst);
+void	env_exp_prep(t_list *env_exp);
 
 char	*ft_strrchr(const char *str, int c);
 void	ft_searchbuiltins(char	**cmd, char *env[]);
 void	ft_checkdollarsign(t_list	**lst);
 void	ft_convertdollartovalue(t_list **lst, t_list *env);
+void	env_exp_prep_util(t_list *env_exp, char old, char new);
 
-int		ft_exec(int argc, char *argv[], char *envp[]) ;
+int		ft_exec(int argc, char *argv[], char *envp[]);
 void	set_path(char **cmd[], char *env[]);
 void	ft_otherbuiltins(char	**cmd);
 void	ft_exitvalue(t_list **lst);

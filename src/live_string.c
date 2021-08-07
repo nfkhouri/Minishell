@@ -6,13 +6,13 @@
 /*   By: tde-cama <tde-cama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 12:01:13 by tde-cama          #+#    #+#             */
-/*   Updated: 2021/08/01 15:07:31 by tde-cama         ###   ########.fr       */
+/*   Updated: 2021/08/03 17:13:28 by tde-cama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void 	str_expans(char *live, int i, size_t stop)
+void	str_expans(char *live, int i, size_t stop)
 {
 	while (i > (int)stop)
 	{
@@ -21,7 +21,7 @@ void 	str_expans(char *live, int i, size_t stop)
 	}
 }
 
-void 	str_retract(char *live, size_t i)
+void	str_retract(char *live, size_t i)
 {
 	while (live[i])
 	{

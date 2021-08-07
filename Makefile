@@ -11,11 +11,11 @@
 # **************************************************************************** #
 
 FILES			= gnl.c gnl_utils.c utils.c utils_2.c list.c history.c \
-				inputs.c keys.c ft_export.c ft_split.c ft_strncmp.c ft_unset.c\
+				inputs.c keys.c ft_export.c ft_split.c ft_unset.c\
 				parsing.c artolst.c live_string.c pipe.c utils_3.c \
-				pipex.c pipex_2.c utils_4.c builtins.c ft_strnstr.c utils_5.c \
+				pipex.c pipex_2.c utils_4.c builtins.c utils_5.c utils_7.c\
 				quotes.c heredoc.c get.c interpreter.c run.c utils_6.c \
-				whereis.c
+				whereis.c cd.c
 
 SRCDIR			= src/
 

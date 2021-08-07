@@ -6,7 +6,7 @@
 /*   By: tde-cama <tde-cama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 10:29:01 by tde-cama          #+#    #+#             */
-/*   Updated: 2021/08/01 00:26:48 by tde-cama         ###   ########.fr       */
+/*   Updated: 2021/08/03 19:37:54 by tde-cama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	init_term(bool mode)
 	check_tty();
 	if (tcgetattr(STDIN_FILENO, &term) != 0)
 	{
-		perror("tcgetatt() Error");
+		printf("tcgetattr() Error: %s\n", strerror(errno));
 		exit(1);
 	}
 	if (!mode)
@@ -43,7 +43,7 @@ void	init_term(bool mode)
 	}
 	if (tcsetattr(STDIN_FILENO, TCSANOW, &term) != 0)
 	{
-		perror("tcsetattr() Error");
+		printf("tcgetattr() Error: %s\n", strerror(errno));
 		exit(1);
 	}
 }
